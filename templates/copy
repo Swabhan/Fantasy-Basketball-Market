@@ -1,7 +1,0 @@
-{%for i in competitors%}
-
-<center>
-	<p>{{i}}</p>
-</center>
-
-{%endfor%}
