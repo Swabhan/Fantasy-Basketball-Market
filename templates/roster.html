@@ -1,0 +1,46 @@
+<head>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+<center><h3>{{myTeamName}} | <span style = 'color:gold'>Gold Chips: {{myGold}}</span> | Players: {{myTeamNum}}</h3></center>
+<div style = "margin-left: 2%">
+<div class="ui breadcrumb">
+  <a class="section" href = '/'>Home</a>
+  <div class="divider"> / </div>
+  <a class="section" href = '/market'>Market</a>
+  <div class="divider"> / </div>
+  <a class="section" href = '/myTeam/Team Name'>My Team</a>
+    <div class="divider"> / </div>
+  <a class="section" href = '/leagues'>Leagues</a>
+</div>
+</div>
+<hr>
+
+<br>
+<div>
+    <div style = "margin-left: 5%">
+<h4>My Roster</h4>
+{%for x in myTeam%}
+    <div class="ui cards" style = 'display: inline-block; margin: .5%'>
+  <div class="card">
+    <div class="content">
+      <div class="header">
+		  Player: <span style = 'color: blue; margin-right: 3%'>{{x}} <a class="ui green circular label"> {{goldTeams['teams'][myTeamName]['roster'][x]}}</a></span> <i class="basketball ball icon"></i>
+      </div>
+      <div class="meta">
+        rep: <span style = 'color: blue;'>{{playerValue[x]['value']}}</span>
+      </div>
+    </div>
+    <div class="extra content">
+		<a href = '/sell/{{x}}/{{myTeamName}}'>
+      <div class="ui two buttons">
+        <div class="ui basic red button"><a href = '/sell/{{x}}/{{myTeamName}}'>Sell</a></div>
+      </div>
+			</a>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
